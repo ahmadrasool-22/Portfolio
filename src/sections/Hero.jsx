@@ -13,7 +13,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-3xl px-6">
         <motion.h1
-          className="text-4xl md:text-6xl font-extrabold text-white mb-6"
+          className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -32,7 +32,7 @@ export default function Hero() {
             wrapper="span"
             speed={50}
             repeat={Infinity}
-            className="block text-purple-400"
+            className="inline-block text-purple-400"
           />
         </motion.h1>
 
