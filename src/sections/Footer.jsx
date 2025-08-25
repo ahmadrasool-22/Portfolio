@@ -40,7 +40,7 @@ export default function Footer() {
 
       {/* Bottom - small text */}
       <div className="mt-6 text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} Your Name. All rights reserved.
+        © {new Date().getFullYear()} Ahmad. All rights reserved.
       </div>
     </footer>
   );
