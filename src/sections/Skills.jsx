@@ -1,32 +1,35 @@
-import { Code2, Database, Braces, Globe } from "lucide-react";
 import { motion } from "framer-motion";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa";
+import { SiTailwindcss, SiCplusplus, SiMysql } from "react-icons/si";
+import { GiAbstract001 } from "react-icons/gi"; // placeholder for OOP
 
 export default function Skills() {
   const skills = [
-    { name: "HTML", icon: Globe },
-    { name: "CSS", icon: Globe },
-    { name: "JavaScript", icon: Braces },
-    { name: "React", icon: Code2 },
-    { name: "Tailwind", icon: Braces },
-    { name: "C++", icon: Code2 },
-    { name: "OOP", icon: Braces },
-    { name: "SQL", icon: Database },
+    { name: "HTML", icon: FaHtml5, color: "text-orange-500" },
+    { name: "CSS", icon: FaCss3Alt, color: "text-blue-500" },
+    { name: "JavaScript", icon: FaJs, color: "text-yellow-400" },
+    { name: "React", icon: FaReact, color: "text-cyan-400" },
+    { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-400" },
+    { name: "C++", icon: SiCplusplus, color: "text-blue-400" },
+    { name: "OOP", icon: GiAbstract001, color: "text-purple-400" },
+    { name: "SQL", icon: SiMysql, color: "text-indigo-400" },
   ];
 
-  // container variant for stagger
   const container = {
     hidden: {},
     show: {
-      transition: {
-        staggerChildren: 0.15,
-      },
+      transition: { staggerChildren: 0.15 },
     },
   };
 
-  // each card variant
   const card = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -35,7 +38,7 @@ export default function Skills() {
       className="py-20 bg-gray-900 text-white"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={container}
     >
       <div className="max-w-6xl mx-auto px-6 text-center">
@@ -48,9 +51,11 @@ export default function Skills() {
               <motion.div
                 key={index}
                 variants={card}
-                className="bg-gray-800/50 p-6 rounded-2xl shadow-md hover:shadow-cyan-500/50 transition transform hover:-translate-y-1 hover:scale-105"
+                className="bg-gray-800/70 p-6 rounded-2xl shadow-md 
+                hover:shadow-cyan-500/50 hover:bg-gray-800 
+                transition transform hover:-translate-y-2 hover:scale-105"
               >
-                <Icon className="w-12 h-12 mx-auto mb-4 text-cyan-400" />
+                <Icon className={`w-12 h-12 mx-auto mb-4 ${skill.color}`} />
                 <h3 className="text-xl font-semibold">{skill.name}</h3>
               </motion.div>
             );
