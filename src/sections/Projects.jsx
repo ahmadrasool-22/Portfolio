@@ -2,8 +2,17 @@ import ProjectCard from "../components/Card";
 
 export default function Projects() {
   const projects = [
+  {
+  title: "Trendora — Ecommerce Frontend Store",
+  description:
+    "A fully responsive ecommerce frontend built with React and Tailwind. Includes product listings, product detail pages, cart, wishlist, search with live filtering, authentication forms, and an optimized user experience with smooth navigation.",
+  tech: ["React", "Tailwind", "React Router", "Vite"],
+  live: "https://trendora-ecommerce-frontend.vercel.app",
+  code: "https://github.com/ahmadrasool-22/Trendora-ecommerce-frontend.git",
+},
+
     {
-      title: "Flexy-Modern Multipage Website",
+      title: "Flexy — Modern Multipage Website",
       description:
         "A complete React + Tailwind site with modern header, hero, features, and footer. Multiple pages handled via React Router.",
       tech: ["React", "Tailwind", "React Router"],
