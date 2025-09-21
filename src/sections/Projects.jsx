@@ -10,6 +10,15 @@ export default function Projects() {
   live: "https://trendora-ecommerce-frontend.vercel.app",
   code: "https://github.com/ahmadrasool-22/Trendora-ecommerce-frontend.git",
 },
+{
+  title: "PizzaOnline — Fast Food Resturant",
+  description:
+    "A modern food ordering Resturant built with React and Tailwind. Features a dynamic menu page, product cards with 'Buy Now' buttons that open WhatsApp for direct ordering, an integrated Google Map for location display — providing a complete restaurant-style online experience.",
+  tech: ["React", "Tailwind", "React Router", "Vite"],
+  live: "https://pizza-online.vercel.app",
+  code: "https://github.com/ahmadrasool-22/pizza-online.git",
+},
+
 
     {
       title: "Flexy — Modern Multipage Website",
