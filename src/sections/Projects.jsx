@@ -1,59 +1,101 @@
+import { motion } from "framer-motion";
 import ProjectCard from "../components/Card";
 
 export default function Projects() {
   const projects = [
-  {
-  title: "Trendora — Ecommerce Frontend Store",
-  description:
-    "A fully responsive ecommerce frontend built with React and Tailwind. Includes product listings, product detail pages, cart, wishlist, search with live filtering, authentication forms, and an optimized user experience with smooth navigation.",
-  tech: ["React", "Tailwind", "React Router", "Vite"],
-  live: "https://trendora-ecommerce-frontend.vercel.app",
-  code: "https://github.com/ahmadrasool-22/Trendora-ecommerce-frontend.git",
-},
-{
-  title: "PizzaOnline — Fast Food Resturant",
-  description:
-    "A modern food ordering Resturant built with React and Tailwind. Features a dynamic menu page, product cards with 'Buy Now' buttons that open WhatsApp for direct ordering, an integrated Google Map for location display — providing a complete restaurant-style online experience.",
-  tech: ["React", "Tailwind", "React Router", "Vite"],
-  live: "https://pizza-online.vercel.app",
-  code: "https://github.com/ahmadrasool-22/pizza-online.git",
-},
+    {
+      title: "Trendora — Full Stack Ecommerce Platform",
 
+      description:
+        "A complete MERN stack ecommerce application featuring secure JWT authentication, admin dashboard, product & order management, Cloudinary image uploads, live search, protected routes, responsive UI, and real-world ecommerce workflow with separate admin and user experiences.",
+
+      tech: [
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+        "Cloudinary",
+        "REST API",
+      ],
+
+      live: "https://trendora-ecommerce-kappa.vercel.app/",
+
+      code: "https://github.com/ahmadrasool-22/trendora-ecommerce.git",
+
+      category: "Full Stack MERN App",
+    },
 
     {
-      title: "Flexy — Modern Multipage Website",
+      title: "SmartCampus — University Management System",
+
       description:
-        "A complete React + Tailwind site with modern header, hero, features, and footer. Multiple pages handled via React Router.",
-      tech: ["React", "Tailwind", "React Router"],
-      live: "https://flexy-multi-page-website.vercel.app",
-      code: "https://github.com/ahmadrasool-22/flexy-multi-page-website.git",
-    },
-    {
-      title: "NewsHub — News App",
-      description:
-        "Category-based news app with API fetching, skeleton loaders, and a responsive hamburger navbar.",
-      tech: ["React", "Tailwind", "REST API", "State Management"],
-      live: "https://news-hub-silk.vercel.app/",
-      code: "https://github.com/ahmadrasool-22/News-Hub.git",
-    },
-    {
-      title: "Weather App",
-      description:
-        "Clean weather dashboard that fetches live data and displays current conditions with a responsive layout.",
-      tech: ["React", "Tailwind", "Fetch API"],
-      live: "https://weather-app-rose-pi-83.vercel.app",
-      code: "https://github.com/ahmadrasool-22/weather-app.git",
+        "A complete academic management portal built with PHP & MySQL featuring role-based authentication, attendance tracking, marks management, subject management, material uploads, notices, and dynamic roll number slip generation with separate Admin, Teacher, and Student dashboards.",
+
+      tech: [
+        "PHP",
+        "MySQL",
+        "Bootstrap 5",
+        "JavaScript",
+        "Authentication",
+        "PDF Generation",
+      ],
+
+      live:
+        "https://smart-campus.infinityfree.me/student-portal/admin/dashboard.php",
+
+      code: "https://github.com/ahmadrasool-22/Smartcampus.git",
+
+      category: "Full Stack Web System",
     },
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-900 text-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Projects</h2>
+    <section
+      id="projects"
+      className="relative py-24 px-6 bg-[#0f172a] overflow-hidden"
+    >
+      {/* Background Glow */}
+      <div className="absolute top-0 left-0 w-[250px] h-[250px] bg-cyan-500/10 blur-3xl rounded-full"></div>
 
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <ProjectCard key={p.title} {...p} />
+      <div className="absolute bottom-0 right-0 w-[250px] h-[250px] bg-blue-500/10 blur-3xl rounded-full"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <p className="text-cyan-400 uppercase tracking-[5px] text-sm font-medium mb-4">
+            Portfolio
+          </p>
+
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
+            Some Of My
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              {" "}Best Projects
+            </span>
+          </h2>
+
+          <p className="text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto">
+            A collection of production-style full stack applications focused on
+            modern UI/UX, scalable backend systems, authentication, deployment,
+            and real-world functionality.
+          </p>
+        </motion.div>
+
+        {/* Projects */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              {...project}
+            />
           ))}
         </div>
       </div>

@@ -1,88 +1,160 @@
-import { Mail, Github, Linkedin } from "lucide-react";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Send,
+} from "lucide-react";
+
 import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12" id="contact">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-10 md:gap-0 justify-between">
+    <footer
+      id="contact"
+      className="relative bg-[#111827] overflow-hidden pt-24 pb-10 px-6"
+    >
+      {/* Background Glow */}
+      <div className="absolute top-0 left-0 w-[250px] h-[250px] bg-cyan-500/10 blur-3xl rounded-full"></div>
+
+      <div className="absolute bottom-0 right-0 w-[250px] h-[250px] bg-blue-500/10 blur-3xl rounded-full"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Left: Form */}
-        <motion.div
-          className="flex-1"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <h3 className="text-2xl font-bold text-white mb-4">Let’s Connect 👋</h3>
-          <p className="text-gray-400 mb-6">I’m open to new opportunities & collaborations.</p>
+        {/* Top Section */}
+        <div className="grid lg:grid-cols-2 gap-14 items-start">
           
-          <form
-            action="https://formspree.io/f/xwpnkonw"
-            method="POST"
-            className="flex flex-col gap-4"
+          {/* LEFT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              required
-              className="bg-gray-800/70 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-cyan-400 focus:outline-none"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-              className="bg-gray-800/70 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-cyan-400 focus:outline-none"
-            />
-            <textarea
-              name="message"
-              rows="4"
-              placeholder="Your Message"
-              required
-              className="bg-gray-800/70 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-cyan-400 focus:outline-none resize-none"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-cyan-500/20 text-cyan-400 border border-cyan-400 rounded-lg px-6 py-2 hover:bg-cyan-500 hover:text-white transition font-semibold"
+            {/* Heading */}
+            <p className="text-cyan-400 uppercase tracking-[5px] text-sm font-medium mb-4">
+              Contact
+            </p>
+
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-6">
+              Let’s Build
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                {" "}Something Great
+              </span>
+            </h2>
+
+            <p className="text-gray-400 text-lg leading-relaxed max-w-xl mb-10">
+              I’m always open to discussing new projects, collaboration
+              opportunities, freelance work, or full stack development ideas.
+            </p>
+
+            {/* Social Links */}
+            <div className="flex flex-wrap gap-4">
+              
+              {/* Email */}
+              <a
+                href="mailto:ahmadrasool979@gmail.com"
+                className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-cyan-500 hover:text-white hover:border-cyan-400 transition duration-300"
+              >
+                <Mail size={22} />
+              </a>
+
+              {/* GitHub */}
+              <a
+                href="https://github.com/ahmadrasool-22"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-cyan-500 hover:text-white hover:border-cyan-400 transition duration-300"
+              >
+                <Github size={22} />
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/ahmad-rasool-862377380"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-cyan-500 hover:text-white hover:border-cyan-400 transition duration-300"
+              >
+                <Linkedin size={22} />
+              </a>
+
+            
+            </div>
+          </motion.div>
+
+          {/* RIGHT SIDE - FORM */}
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-8"
+          >
+            <h3 className="text-2xl font-semibold text-white mb-6">
+              Send a Message
+            </h3>
+
+            <form
+              action="https://formspree.io/f/xwpnkonw"
+              method="POST"
+              className="space-y-5"
             >
-              Send Message
-            </button>
-          </form>
-        </motion.div>
+              {/* Name */}
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  className="w-full bg-[#0f172a] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-cyan-400 transition"
+                />
+              </div>
 
-        {/* Right: Social Links */}
-        <motion.div
-          className="flex flex-col items-center md:items-end gap-4"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-        >
-          <h3 className="text-lg font-semibold text-white">Find me on</h3>
-          <div className="flex space-x-4 mt-2">
-            <a href="mailto:ahmadrasool979@gmail.com" className="hover:text-white transition">
-              <Mail size={22} />
-            </a>
-            <a href="https://github.com/ahmadrasool-22" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
-              <Github size={22} />
-            </a>
-            <a href="https://www.linkedin.com/in/ahmad-rasool-862377380" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
-              <Linkedin size={22} />
-            </a>
-            <a href="https://www.tiktok.com/@ahmad109825" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" className="w-6 h-6">
-                <path d="M448,209.9a210.1,210.1,0,0,1-122.8-39.4V346.5a165.5,165.5,0,1,1-147-164.1v84.6A82,82,0,1,0,271.3,346V0h54.2a153.6,153.6,0,0,0,43.1,107.6A155,155,0,0,0,448,157.1Z"/>
-              </svg>
-            </a>
-          </div>
-        </motion.div>
-      </div>
+              {/* Email */}
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                  className="w-full bg-[#0f172a] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-cyan-400 transition"
+                />
+              </div>
 
-      {/* Bottom text */}
-      <div className="mt-10 text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} Ahmad. All rights reserved.
+              {/* Message */}
+              <div>
+                <textarea
+                  name="message"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                  className="w-full bg-[#0f172a] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-cyan-400 transition resize-none"
+                ></textarea>
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="w-full flex items-center justify-center gap-2 bg-cyan-500 text-white py-4 rounded-2xl font-medium hover:bg-cyan-400 transition duration-300"
+              >
+                Send Message
+                <Send size={18} />
+              </button>
+            </form>
+          </motion.div>
+        </div>
+
+        {/* Bottom Line */}
+        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          
+          <p className="text-gray-500 text-sm text-center md:text-left">
+            © {new Date().getFullYear()} Ahmad. All rights reserved.
+          </p>
+
+          <p className="text-gray-600 text-sm">
+            Built with React & Tailwind CSS
+          </p>
+        </div>
       </div>
     </footer>
   );

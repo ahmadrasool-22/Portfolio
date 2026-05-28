@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react"; // modern icons
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const links = ["Home", "Projects", "Skills", "Contact"];
+  const links = ["Home", "Projects", "Skills", "Contact","Services"];
 
   return (
     <header className="fixed w-full z-50 bg-gray-900/40 backdrop-blur-md border-b border-gray-800/50">

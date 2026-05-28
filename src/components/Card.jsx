@@ -1,58 +1,86 @@
 import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
 
-export default function ProjectCard({ title, description, tech = [], live, code }) {
+import {
+  FaGithub,
+} from "react-icons/fa";
+
+import {
+  FiExternalLink,
+} from "react-icons/fi";
+
+export default function ProjectCard({
+  title,
+  description,
+  tech = [],
+  live,
+  code,
+  category,
+}) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 35 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="group rounded-2xl bg-gray-800/50 border border-gray-700/60 p-6 
-                 transition hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(56,189,248,0.2)]
-                 cursor-pointer"
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="group relative bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-xl hover:border-cyan-400/30 transition duration-300 hover:-translate-y-2"
     >
-      <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-      <p className="text-gray-300/90 text-sm mb-5 leading-relaxed">{description}</p>
+      {/* Top Gradient */}
+      <div className="h-2 w-full bg-gradient-to-r from-cyan-400 to-blue-500"></div>
 
-      {/* Tech badges */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {tech.map((t) => (
-          <span
-            key={t}
-            className="text-xs px-3 py-1 rounded-full border border-gray-600/70 
-                       text-gray-200 bg-gray-900/40 group-hover:border-cyan-400/50"
-          >
-            {t}
-          </span>
-        ))}
-      </div>
+      <div className="p-8">
+        
+        {/* Category */}
+        <span className="inline-block px-4 py-1 rounded-full text-xs font-medium tracking-wide bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 mb-5">
+          {category}
+        </span>
 
-      {/* Actions */}
-      <div className="flex gap-3">
-        {live && (
+        {/* Title */}
+        <h3 className="text-2xl font-bold text-white mb-5 leading-snug">
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-400 leading-relaxed mb-7">
+          {description}
+        </p>
+
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-3 mb-8">
+          {tech.map((item, index) => (
+            <span
+              key={index}
+              className="px-3 py-1.5 rounded-full text-sm bg-white/5 border border-white/10 text-gray-300 hover:border-cyan-400/30 transition"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4">
+          
+          {/* Live Demo */}
           <a
             href={live}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-cyan-300 
-                       border border-cyan-500/50 hover:bg-cyan-500 hover:text-white transition"
+            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-500 text-white font-medium hover:bg-cyan-400 transition duration-300"
           >
-            <FiExternalLink /> Live Demo
+            <FiExternalLink size={18} />
+            Live Demo
           </a>
-        )}
-        {code && (
+
+          {/* GitHub */}
           <a
             href={code}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-purple-300 
-                       border border-purple-500/50 hover:bg-purple-500 hover:text-white transition"
+            className="flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/5 text-gray-200 hover:bg-white/10 transition duration-300"
           >
-            <FaGithub /> GitHub
+            <FaGithub size={18} />
+            GitHub
           </a>
-        )}
+        </div>
       </div>
     </motion.div>
   );
